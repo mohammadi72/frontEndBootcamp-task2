@@ -33,8 +33,6 @@ function loadedTransactions(restURL) {
   loadedBtn.style.display = "none";
   transactionTable.style.display = "block";
   searchInput.style.display = "block";
-  // let restURL = "";
-  // restURL += url;
   console.log(restURL);
   app
     .get(restURL)
@@ -61,10 +59,6 @@ function dispalyTransactions() {
       .split("")
       .map((v, i, a) => (i < a.length - 1 && i % 3 == 0 ? v + "," : v))
       .join("");
-    // <td ng-class="condition ? 'type-transactions' : 'add-type'">${element.type}</td>
-    // <td class="@(status ? "type-transactions" : "add-type")">${element.type}</td>
-    // <td style ="color: @(status? "#fde0e0;" : "#DFF0D8;")">${element.type}</td>
-    // <td class="<%=  status ? 'type-transactions' : 'add-type' %>">${element.type}</td>
     if (status) {
       result += ` <tr>
                   <td>${element.id}</td>
@@ -122,7 +116,7 @@ function sortByPrices() {
       : loadedTransactions(searchItems + "&_sort=price&_order=asc");
   }
 }
-http: function sortByDates() {
+function sortByDates() {
   displaySorting("date"); //sort by dates
   allTransactions = [];
   if (searchItems === "") {
